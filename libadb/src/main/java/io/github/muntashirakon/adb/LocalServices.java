@@ -110,8 +110,10 @@ public class LocalServices {
      * Restore a backup. Input is a stream which is in zlib format with 24 bytes at the front (if unencrypted).
      */
     public static final int RESTORE = 15;
+    public static final int ROOT = 16;
+    public static final int DEVICES = 17;
 
-    static final int SERVICE_LAST = 15;
+    static final int SERVICE_LAST = 17;
 
     @IntDef({
             SHELL,
@@ -129,6 +131,8 @@ public class LocalServices {
             REVERSE,
             BACKUP,
             RESTORE,
+            ROOT,
+            DEVICES,
     })
     @Retention(RetentionPolicy.SOURCE)
     public @interface Services {
@@ -167,6 +171,10 @@ public class LocalServices {
                 return "backup:";
             case RESTORE:
                 return "restore:";
+            case ROOT:
+                return "root:";
+            case DEVICES:
+                return "devices:";
             default:
                 throw new IllegalArgumentException("Invalid service: " + service);
         }
