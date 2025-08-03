@@ -111,9 +111,10 @@ public class LocalServices {
      */
     public static final int RESTORE = 15;
     public static final int ROOT = 16;
-    public static final int DEVICES = 17;
+    public static final int UNROOT = 17;
+    public static final int DEVICES = 18;
 
-    static final int SERVICE_LAST = 17;
+    static final int SERVICE_LAST = 18;
 
     @IntDef({
             SHELL,
@@ -132,6 +133,7 @@ public class LocalServices {
             BACKUP,
             RESTORE,
             ROOT,
+            UNROOT,
             DEVICES,
     })
     @Retention(RetentionPolicy.SOURCE)
@@ -173,6 +175,8 @@ public class LocalServices {
                 return "restore:";
             case ROOT:
                 return "root:";
+            case UNROOT:
+                return "unroot:";
             case DEVICES:
                 return "devices:";
             default:
